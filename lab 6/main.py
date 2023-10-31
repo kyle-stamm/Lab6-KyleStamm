@@ -39,6 +39,14 @@ def encode(password):
 
     return return_str
 
+def decode(x):
+    num_string = x
+    num_list = []
+    for i in num_string:
+        num_list.append(str(int(i) - 3))
+    num_string = ''.join(num_list)
+    print(num_string)
+    return num_string
 
 def main():
 
