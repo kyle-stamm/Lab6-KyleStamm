@@ -1,7 +1,6 @@
 # Kyle's Code
 running = True
 password = ''
-
 def menu():
     print("\n\nMenu")
     print("-------------")
@@ -43,7 +42,10 @@ def decode(x):
     num_string = x
     num_list = []
     for i in num_string:
-        num_list.append(str(int(i) - 3))
+        if (int(i) - 3) < 0:
+            num_list.append(str(int(i) - 3 + 10))
+        else:
+            num_list.append(str(int(i) - 3))
     num_string = ''.join(num_list)
     print(num_string)
     return num_string
