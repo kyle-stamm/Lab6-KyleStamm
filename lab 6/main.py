@@ -19,6 +19,8 @@ def options(choice):
         password = input("Please enter your password to encode:\n")
         password = encode(password)
         print("Your password has been encoded and stored!")
+    if choice == 2:
+        print(f"The encoded password is {password} and the original password is {decode(password)}.")
     if choice == 3:
         running = False
 
@@ -31,7 +33,10 @@ def encode(password):
         digit_list.append(int(char))
 
     for x in range(0, len(digit_list)):
-        digit_list[x] += 3
+        if (digit_list[x] + 3) <= 9:
+            digit_list[x] += 3
+        else:
+            digit_list[x] += 3 - 10
 
     for digit in digit_list:
         return_str += str(digit)
@@ -47,7 +52,6 @@ def decode(x):
         else:
             num_list.append(str(int(i) - 3))
     num_string = ''.join(num_list)
-    print(num_string)
     return num_string
 
 def main():
